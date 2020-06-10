@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cupcake shop</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Cupcake Corner</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="orders">Home</a></li>
+                <li class="active"><a href="#">Orders</a></li>
+              </ul>
+              <button class="btn btn-danger navbar-btn">Add new cupcake</button>
+            </div>
+          </nav>
+
+
+
+        <div class="jumbotron text-center">
+            <h1>Add new flavour</h1>
+            <p>Lets get to it!</p>
+        </div>
+
+
+        <div class="container">
+            <h2>Add new cupcakes</h2>
+            <form method="POST" action="/add">
+                <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter name of new cupcake">
+
+                    <label>Description:</label>
+                    <input type="text" name="description" class="form-control" placeholder="Enter description">
+
+                    <label>Price:</label>
+                    <input type="text" name="price" class="form-control" placeholder="Enter price">
+                </div>
+
+              <button type="submit" class="btn btn-default">Submit new cupcake</button>
+            </form>
+
+            <hr/>
+
+            <h2>Existing cupcakes:</h2>           
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Cupcake's name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    #for(cupcake in cupcakes) {
+                        <tr>
+                            <td>#(cupcake.name)</td>
+                            <td>#(cupcake.description)</td>
+                            <td>£ #(cupcake.price)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+          </div>
+
+    </body>
+</html>

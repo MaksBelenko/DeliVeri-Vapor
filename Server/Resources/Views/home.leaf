@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Deli Veri</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Deli Veri</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="orders">Orders</a></li>
+              </ul>
+              <button class="btn btn-danger navbar-btn">Add new restaurant</button>
+            </div>
+          </nav>
+
+
+
+        <div class="jumbotron text-center">
+            <h1>Deli Veri</h1>
+            <p>Welcome to Deli Veri! A delivery service for you</p>
+        </div>
+
+
+        <div class="container">
+            <h2>Add new restaurant</h2>
+            <form method="POST" action="/add">
+                <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter name of new cupcake">
+
+                    <label>Description:</label>
+                    <input type="text" name="description" class="form-control" placeholder="Enter description">
+
+                    <label>Price:</label>
+                    <input type="text" name="price" class="form-control" placeholder="Enter price">
+                </div>
+
+              <button type="submit" class="btn btn-default">Submit new product</button>
+            </form>
+
+            <hr/>
+
+            <h2>Existing restaurants:</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Restaurant's name</th>
+                    <th>Description</th>
+                    <th>Order value</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    #for(restaurant in restaurants) {
+                        <tr>
+                            <td>#(restaurant.name)</td>
+                            <td>#(restaurant.description)</td>
+                            <td>£ #(restaurant.price)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+            <hr/>
+
+            <h2>Current orders:</h2>           
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Buyer name</th>
+                    <th>Restaurant</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    #for(order in orders) {
+                        <tr>
+                            <td>#(order.buyerName)</td>
+                            <td>#(order.cakeName)</td>
+                            <td>#date(order.date, "HH:mm, dd-MM-yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+
+          </div>
+
+    </body>
+</html>
